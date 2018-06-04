@@ -34,14 +34,16 @@ module.exports = {
   },
   module: {
     rules: [
-      // .ts, .tsx
+      // less
       {
-        test: function (modulePath) {
-          return modulePath.endsWith('.ts') || modulePath.endsWith('.tsx') && !modulePath.endsWith('test.tsx');
-        },
-        use: isProduction
-          ? 'ts-loader'
-          : ['babel-loader?plugins=react-hot-loader/babel', 'ts-loader']
+        test: /\.less$/,
+        use: [{
+          loader: 'style-loader' // creates style nodes from JS strings
+        }, {
+          loader: 'css-loader' // translates CSS into CommonJS
+        }, {
+          loader: 'less-loader' // compiles Less to CSS
+        }]
       },
       // css
       {
@@ -75,6 +77,15 @@ module.exports = {
             }
           ]
         })
+      },
+      // .ts, .tsx
+      {
+        test: function (modulePath) {
+          return modulePath.endsWith('.ts') || modulePath.endsWith('.tsx') && !modulePath.endsWith('test.tsx');
+        },
+        use: isProduction
+          ? 'ts-loader'
+          : ['babel-loader?plugins=react-hot-loader/babel', 'ts-loader']
       },
       // static assets
       { test: /\.html$/, use: 'html-loader' },

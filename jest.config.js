@@ -9,7 +9,7 @@ module.exports = {
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
     "moduleFileExtensions": [...defaults.moduleFileExtensions, 'ts', 'tsx'],
     // Coverage generating options
-    "collectCoverage": true,
+    "collectCoverage": process.env.coverage,
     "coverageDirectory": "./coverage/",
     "collectCoverageFrom": [
         "**/*.{ts,tsx}",

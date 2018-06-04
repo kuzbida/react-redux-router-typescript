@@ -10,9 +10,7 @@ export class About extends React.Component {
 
   constructor(props: any, context?: any) {
     super(props, context);
-    console.log('test');
   }
-
 
   render() {
     return (

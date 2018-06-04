@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as style from './style.css';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 import { RouteComponentProps } from 'react-router';
@@ -8,6 +7,7 @@ import { RootState } from 'app/reducers';
 import { TodoModel } from 'app/models';
 import { omit } from 'app/utils';
 import { Header, TodoList, Footer } from 'app/components';
+import './style.less';
 
 const FILTER_VALUES = (Object.keys(TodoModel.Filter) as (keyof typeof TodoModel.Filter)[]).map(
   (key) => TodoModel.Filter[key]
@@ -66,7 +66,7 @@ export class Todos extends React.Component<Todos.Props> {
     const completedCount = todos.reduce((count, todo) => (todo.completed ? count + 1 : count), 0);
 
     return (
-      <div className={style.normal}>
+      <div className="normal">
         <Header addTodo={actions.addTodo} />
         <TodoList todos={filteredTodos} actions={actions} />
         <Footer
