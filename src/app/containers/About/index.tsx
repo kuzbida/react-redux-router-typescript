@@ -1,8 +1,9 @@
 import * as React from 'react';
-import {RouteComponentProps} from "react-router";
+import { RouteComponentProps } from "react-router";
+// import { Button } from 'antd';
 
 export namespace About {
-  export interface Props extends RouteComponentProps<void> {}
+  export interface Props extends RouteComponentProps<void> { }
 }
 
 
@@ -16,6 +17,7 @@ export class About extends React.Component {
     return (
       <div>
         <h1>About</h1>
+        {/* <Button type="primary">Test</Button> */}
       </div>
     );
   }
