@@ -24,7 +24,7 @@ module.exports = {
   },
   target: 'web',
   resolve: {
-    extensions: ['.js', '.ts', '.tsx'],
+    extensions: ['.js', '.ts', '.tsx', '!**/*.{ts,tsx}'],
     // Fix webpack's default behavior to not load packages with jsnext:main module
     // (jsnext:main directs not usually distributable es6 format, but es6 sources)
     mainFields: ['module', 'browser', 'main'],
@@ -36,7 +36,9 @@ module.exports = {
     rules: [
       // .ts, .tsx
       {
-        test: /\.tsx?$/,
+        test: function (modulePath) {
+          return modulePath.endsWith('.ts') || modulePath.endsWith('.tsx') && !modulePath.endsWith('test.tsx');
+        },
         use: isProduction
           ? 'ts-loader'
           : ['babel-loader?plugins=react-hot-loader/babel', 'ts-loader']

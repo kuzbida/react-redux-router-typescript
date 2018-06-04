@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { shallow } from 'enzyme';
-import { App } from './index';
+// import * as React from 'react';
+// import { shallow } from 'enzyme';
+// import { App } from './index';
 
 test('basic',async () => {
     expect(true).toBe(true);
