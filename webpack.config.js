@@ -4,7 +4,7 @@ var path = require('path');
 // variables
 var isProduction = process.argv.indexOf('-p') >= 0;
 var sourcePath = path.join(__dirname, './src');
-var outPath = path.join(__dirname, './dist');
+var outPath = path.join(__dirname, './build');
 
 // plugins
 var HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -121,7 +121,7 @@ module.exports = {
       disable: !isProduction
     }),
     new HtmlWebpackPlugin({
-      template: 'assets/index.html'
+      template: 'public/index.html'
     })
   ],
   devServer: {
