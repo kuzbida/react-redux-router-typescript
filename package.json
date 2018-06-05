@@ -1,5 +1,5 @@
 {
-  "name": "typescript-react-redux-boilerplate",
+  "name": "ssbd-cloud",
   "version": "1.0.0",
   "private": true,
   "description": "A frontend boilerplate with React, Redux and Typescript",
@@ -9,7 +9,9 @@
     "test:watch": "jest --watch --coverage",
     "start": "webpack-dev-server --mode development --hot --progress --color --port 3000 --open",
     "build": "webpack -p --progress --colors",
-    "prettier": "prettier --write \"src/**/*.{ts,tsx,css}\""
+    "prettier": "prettier --write \"src/**/*.{ts,tsx,css}\"",
+    "lint": "tslint --project \"./\"",
+    "commitmsg": "commit-message-validator"
   },
   "license": "MIT",
   "devDependencies": {
@@ -29,6 +31,7 @@
     "@types/webpack": "4.1.4",
     "@types/webpack-env": "1.13.6",
     "babel-loader": "^7.1.4",
+    "commit-message-validator": "^0.1.6",
     "css-loader": "^0.28.11",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
@@ -54,6 +57,10 @@
     "style-loader": "^0.21.0",
     "ts-jest": "^22.4.6",
     "ts-loader": "^4.2.0",
+    "tslint": "^5.10.0",
+    "tslint-config-prettier": "^1.13.0",
+    "tslint-loader": "^3.6.0",
+    "tslint-react": "^3.6.0",
     "typescript": "^2.8.3",
     "url-loader": "^1.0.1",
     "webpack": "^4.6.0",
@@ -72,5 +79,11 @@
     "react-router-redux": "^5.0.0-alpha.9",
     "redux": "^4.0.0",
     "redux-actions": "^2.3.0"
+  },
+  "config": {
+    "commit-message-validator": {
+      "pattern": "^SBDC(-[0-9]+)* ([a-zA-Z0-9]+.*)+",
+      "errorMessage": "Commit message must be in format '<\"SBDC\"><\"-\"number_of_ticket_optional><space><commit_message>'"
+    }
   }
 }
